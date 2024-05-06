@@ -17,7 +17,7 @@ module.exports = {
     if(isNaN(nms[0]) || isNaN(nms[1])) return error();
 
     var v1 = nms[0]*1, v2 = nms[1]*1;
-    let puntos = 100-((v1*100)/v2)
+    let puntos = Math.abs(100-((v1*100)/v2));
 
     message.reply(`La diferencia de stats es de ${Math.round(puntos)}||(${puntos})||% ||///||`)
   }
