@@ -29,6 +29,7 @@ var LNM = 0
 var LIV = true
 
 client.on("ready", () => {
+  client.user.setActivity(`Creado por Guito 🤓`, {type: "PLAYING"});
   console.log("Ando activo papi")
   
   const Lchannel = client.channels.cache.get("1103166487117713558");
