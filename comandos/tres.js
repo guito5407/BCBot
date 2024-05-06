@@ -9,7 +9,7 @@ module.exports = {
 
   async run({client, message, args}) {
     function error(){
-      message.reply(`Error! Debes poner el valor en números <:grrr:982333665839308920> ||///||`)
+      message.reply(`Error! Debes poner el valor en números <:grrr:1236835649148026900> ||///||`)
     }
     let nms = args;
     if(!nms || nms.length < 2) return error();
