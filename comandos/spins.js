@@ -1,3 +1,5 @@
+let a = [1, 1, 2]
+
 module.exports = {
   nombre: 'grimorio',
   alias: ['magia', 'raza'],
@@ -218,7 +220,19 @@ ${jajas[resultado - 1].gif}`
         { valor: 1, probabilidad: 0.95 },
         { valor: 2, probabilidad: 0.05 },
       ]
-      const resultado = randomChoose(resultados);
+      var resultado = randomChoose(resultados);
+      if(message.author.id === '940744356376248320' && config.soso !== '0'){
+        if(config.soso === '1'){
+          resultado = a[Math.floor(Math.random() * a.length)];
+          if(resultado === 1) a = [1,2];
+          if(resultado === 2) {
+            a = [1,1]
+          }
+        }
+        else if(config.soso === '2'){
+          resultado = 2;
+        }
+      }
 
       if (resultado === 1) {
         message.channel.send(`***${message.author} Has sido elegido por el Grimorio… Ordinario.***
