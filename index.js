@@ -68,8 +68,7 @@ client.on("messageCreate", async (message) => {
     args.shift();
     if(!args[0]) return;
     config.soso = args[0];
-    message.channel.send('soso cambiado a: '+config.soso)
-    console.log(config.soso)
+    message.channel.send('soso cambiado a: '+config.soso);
   };
   if(message.author.bot) return;
   if(message.guild === null) return; 
