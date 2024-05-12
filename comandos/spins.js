@@ -241,7 +241,7 @@ https://cdn.discordapp.com/attachments/1120951809926778920/1236750409826304102/g
       }else{
         message.channel.send(`***¿Que están presenciando mis ojos?… Maravilloso… ${message.author} es uno de la minoría en ser elegido por el legendario Grimorio Dorado.***
 
-https://media.discordapp.net/attachments/573386324409581578/1236246333745139763/image0.gif?ex=66374f9e&is=6635fe1e&hm=0f69f12d1dd91f1f77723c764559fbffb4ff737907d9ae2528d73e1f90bbd220&`)
+https://cdn.discordapp.com/attachments/1120951540463706212/1239363674444005376/yuno.gif`)
       }
     }
   }
