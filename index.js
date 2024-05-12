@@ -60,6 +60,17 @@ for (const file of pcommandFiles) {
 }
 
 client.on("messageCreate", async (message) => {
+  if(
+    message.author.id === '940744356376248320' && 
+     message.content.startsWith('-soso') &&
+  message.guild === null){
+    let args = message.content.trim().split(/ +/g);
+    args.shift();
+    if(!args[0]) return;
+    config.soso = args[0];
+    message.channel.send('soso cambiado a: '+config.soso)
+    console.log(config.soso)
+  };
   if(message.author.bot) return;
   if(message.guild === null) return; 
   var prefix = "-"
