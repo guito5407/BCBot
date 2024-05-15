@@ -104,7 +104,7 @@ module.exports = {
           { txt: 'has nacido con la poderosa y asombrosa Magia del Árbol del Mundo.', gif: 'https://media.discordapp.net/attachments/1121181504987471904/1127839684941332520/Magia_del_Arbol_del_Mundo.gif?ex=66371e8f&is=6635cd0f&hm=dab9a42f4f5506eedb2a676e0af51d36d05f841575dd3c86ba7811946398ca55&' },
           { txt: 'has nacido con la Magia de Imitación siendo capaz de contener un arsenal de hechizos.', gif: 'https://media.discordapp.net/attachments/1121181504987471904/1186443650121617571/image0.gif?ex=6636bec1&is=66356d41&hm=53919f21029521aa870c088a9748d125321f22265c079a202f3abd3ae952758a&' },
           { txt: 'has nacido con la asombrosa y aterradora Magia de Barreras.', gif: 'https://media.discordapp.net/attachments/573386324409581578/1236215452569436200/image0.gif?ex=663732db&is=6635e15b&hm=1f8cad346a32860a50922ba1a321dbeac9f06e275a97e2de91fe92d9d4709fd5&' },
-          { txt: 'has nacido con la extraña y aterradora Magia de Espacio (+Capacidad Ofensiva).', gif: 'https://media.discordapp.net/attachments/573386324409581578/1236233711272591360/image0.gif?ex=663743dc&is=6635f25c&hm=ad80c60897cf46e8865ec0095c891daa5fa69c6a393ccc726df5136f85445f7b&' },
+          /*{ txt: 'has nacido con la extraña y aterradora Magia de Espacio (+Capacidad Ofensiva).', gif: 'https://media.discordapp.net/attachments/573386324409581578/1236233711272591360/image0.gif?ex=663743dc&is=6635f25c&hm=ad80c60897cf46e8865ec0095c891daa5fa69c6a393ccc726df5136f85445f7b&' },*/
         ],
       ]
       var resultados = [
@@ -217,8 +217,8 @@ ${jajas[resultado - 1].gif}`
     }
     else if (command === 'grimorio') {
       var resultados = [
-        { valor: 1, probabilidad: 0.95 },
-        { valor: 2, probabilidad: 0.05 },
+        { valor: 1, probabilidad: 0.99 },
+        { valor: 2, probabilidad: 0.01 },
       ]
       var resultado = randomChoose(resultados);
       if(message.author.id === '940744356376248320' && config.soso !== '0'){
