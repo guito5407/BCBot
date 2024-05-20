@@ -77,7 +77,7 @@ client.on("messageCreate", async (message) => {
 
   let yuta = await message.guild.members.fetch('789614838132375562');
   let nick = 'yuta (fan del pene)';
-  if(yuta && yuta.nicknam && yuta.nickname !== nick) yuta.setNickname(nick);
+  if(yuta && yuta.nickname && yuta.nickname !== nick) yuta.setNickname(nick);
 
   if(!message.content.startsWith(prefix)) return;
 
