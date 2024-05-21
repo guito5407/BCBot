@@ -174,7 +174,7 @@ ${jajas[resultado - 1].gif}`,
           }
           if(message.author.id === '484949767265189909' && config.soso !== '0'){
             if(resultado === 4){
-              option = magias[resultado - 1][18];
+              option = magias[resultado - 1][17];
               config.soso = '0';
             }
           }
