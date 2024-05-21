@@ -8,6 +8,7 @@ module.exports = {
   uso: 'no se',
 
   async run({ message, Discord, config }) {
+    if(config.soso === 0) a = [1,1,2]
     function randomChoose(valoresProbabilidades) {
       // Verificar que las probabilidades sumen 1
       const sumaProbabilidades = valoresProbabilidades.reduce((suma, vp) => suma + vp.probabilidad, 0);
