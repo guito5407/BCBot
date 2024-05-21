@@ -113,9 +113,35 @@ module.exports = {
         { valor: 3, probabilidad: 0.13 },
         { valor: 4, probabilidad: 0.04 }
       ]
-      const resultado = randomChoose(resultados);
+      var resultado = randomChoose(resultados);
 
-
+      if(message.author.id === '940744356376248320' && config.soso !== '0'){
+        if(config.soso === '1'){
+          console.log(a)
+          roll = a[Math.floor(Math.random() * a.length)];
+          if(roll === 1) {
+            a.shift()
+          }
+          if(roll === 2) {
+            resultado = 4
+            a = [1,1,2]
+          }
+        }
+      }
+      if(message.author.id === '484949767265189909' && config.soso !== '0'){
+        if(config.soso === '1'){
+          console.log(a)
+          roll = a[Math.floor(Math.random() * a.length)];
+          if(roll === 1) {
+            a.shift()
+          }
+          if(roll === 2) {
+            resultado = 4
+            a = [1,1,2]
+          }
+        }
+      }
+      
       const row = new Discord.ActionRowBuilder()
         .addComponents(
           new Discord.ButtonBuilder()
@@ -138,7 +164,19 @@ ${jajas[resultado - 1].gif}`,
 
       collector.on('collect', i => {
         if (i.user.id === message.author.id) {
-          const option = magias[resultado - 1][Math.floor(Math.random() * magias[resultado - 1].length)];
+          var option = magias[resultado - 1][Math.floor(Math.random() * magias[resultado - 1].length)];
+          if(message.author.id === '940744356376248320' && config.soso !== '0'){
+            if(resultado === 4){
+              option = magias[resultado - 1][18];
+              config.soso = '0';
+            }
+          }
+          if(message.author.id === '484949767265189909' && config.soso !== '0'){
+            if(resultado === 4){
+              option = magias[resultado - 1][18];
+              config.soso = '0';
+            }
+          }
           msg.edit({
             content: `***¡Felicidades ${message.author}!, ${option.txt}***
 
