@@ -72,13 +72,21 @@ class Webhook {
     }
 
     static async getOrCreateWebhook(channel) {
-        // Intentar obtener un webhook existente del canal
-        const webhooks = await channel.fetchWebhooks();
+        let parentChannel = channel;
+
+        // Verificar si el canal es un hilo
+        if (channel.isThread()) {
+            // Obtener el canal padre del hilo
+            parentChannel = await channel.parent.fetch();
+        }
+
+        // Intentar obtener un webhook existente del canal (o del canal padre si es un hilo)
+        const webhooks = await parentChannel.fetchWebhooks();
         let webhook = webhooks.find(wh => wh.owner.id === client.user.id);
 
         // Si no existe, crear uno nuevo
         if (!webhook) {
-            webhook = await channel.createWebhook({
+            webhook = await parentChannel.createWebhook({
                 name: 'BotWebhook',
                 avatar: 'https://images-ext-1.discordapp.net/external/WBR50qbTtHdxy5eSqljEzdracR6K8D7fbglVHxEUZsw/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/1184965901582348310/a7bf4f67c9f07c608e0ec7ff316f0359.png?format=webp&quality=lossless',
             });
@@ -89,27 +97,34 @@ class Webhook {
 
     async send(content) {
         const webhook = await Webhook.getOrCreateWebhook(this.channel);
+
         await webhook.edit({
             name: this.webhookName,
             avatar: this.webhookAvatar,
         });
-
-        return await webhook.send(content);
+        
+        // Enviar el mensaje al canal o al hilo
+        if (this.channel.isThread()) {
+            return await webhook.send({
+                ...content,
+                threadId: this.channel.id, // Asegura que se envíe en el hilo
+            });
+        } else {
+            return await webhook.send(content);
+        }
     }
 
     async reply(message, content) {
         const webhook = await Webhook.getOrCreateWebhook(this.channel);
-
-        await webhook.edit({
-            name: this.webhookName,
-            avatar: this.webhookAvatar,
-        });
-
-        await webhook.send({
-            content: content,
-            threadId: message.channel.id,
-            // El ID del canal en caso de que sea necesario
-        });
+        
+        if (message.channel.isThread()) {
+            return await webhook.send({
+                content: content,
+                threadId: message.channel.id,
+            });
+        } else {
+            return await webhook.send(content);
+        }
     }
 
     async edit(newContent, message) {
