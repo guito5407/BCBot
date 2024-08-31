@@ -46,7 +46,7 @@ client.on("ready", () => {
             Lchannel.send(mensaje);
         }, delay);
     }
-    Lchannel.send(`Iniciando el conteo, el bot acaba de ser encendido. || < @940744356376248320> ||`);
+    Lchannel.send(`Iniciando el conteo, el bot acaba de ser encendido. || <@940744356376248320> ||`);
     Main(10000);
 });
 
