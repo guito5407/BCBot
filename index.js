@@ -22,6 +22,8 @@ const config = require('./utiles/config');
 const fs = require('node:fs');
 const path = require('path');
 
+const keep_alive = require('./utiles/keep_alive.js');
+
 client.on("ready", () => {
     console.log(`¡Bot encendido!`);
 
